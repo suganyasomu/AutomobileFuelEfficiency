@@ -1,5 +1,5 @@
 ﻿Make,Fuel,EngineCylinders,AverageHighwayMPG,AverageCityMPG
-Acura,Gasoline,6,28,21
+Acura,Gasoline,6,28,22.5
 Alfa Romeo,Gasoline,6,24,17
 Audi,Gasoline,6,27,19
 BMW,Gasoline,6,28,19
@@ -18,7 +18,7 @@ Jaguar,Gasoline,6,26,18
 Jeep,Gasoline,6,27,19
 Kia,Gasoline,6,25,18
 Land Rover,Gasoline,6,23,17
-Lexus,Gasoline,6,28,21
+Lexus,Gasoline,6,28,22.5
 Lincoln,Gasoline,6,24,16
 Lotus,Gasoline,6,24,17
 Maserati,Gasoline,6,24,16

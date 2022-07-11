@@ -116,7 +116,7 @@
     <li> Type of fuel used by the Car Engine</li>
     <li> Driving in city vs Driving on Highways</li>
   </ul>
-  <h2>#1 Exploring Number of Engine Cylinders</h2>
+  <h2>Exploring Number of Engine Cylinders</h2>
 
   <p> The engines are traditionally built to create a perfect balance of power and fuel efficiency . Higher the number
     of cylinders in an engine , more the power it can generate at any given point in time, but unfortunately it lowers
@@ -126,15 +126,12 @@
       style="color:red">red line</b> . Y -axis is the number of cylinders and X-axis is the major car manufacturers in
     the world today.</p>
   <svg width=1200 height=800 style="border:1px solid black">
-    <!-- <line x1="525" y1="245" x2="525" y2="425" style="stroke:rgb(255,0,0);stroke-width:1" /> -->
     <line x1="25" y1="423" x2="1200" y2="423" style="stroke:rgb(255,0,0);stroke-width:5" />
-    <!-- <text x="500" y="220" font-family="sans-serif" font-size="12px" fill="red">Most Common Engine type:</text>
-    <text x="500" y="235" font-family="sans-serif" font-size="12px" fill="red">4 Cylinder !</text> -->
   </svg>
   <div>
     <div align="center">
-      <a align="center " href="Fuel and Fuel efficiency.html" class="btn btn-primary"
-        style="display:inline-block;padding:0.5em 2em;margin:0 0.3em 0.3em 0;margin-bottom: 50px;border-radius:2em;box-sizing: border-box;font-weight:300;color:#FFFFFF;background-color:#f14e4e;text-align:center;transition: all 0.2s;">Fuel
+      <a align="center " href="SubScenes\Fuel and Fuel efficiency.html" class="btn btn-primary"
+        style="display:inline-block;padding:1em 2em;margin:10 0.3em 0.3em 0;margin-top: 50px;margin-bottom: 50px;border-radius:2em;box-sizing: border-box;font-weight:300;color:#FFFFFF;background-color:#f14e4e;text-align:center;transition: all 0.2s;">Fuel
         Type and Fuel Efficiency
         >></a>
 
@@ -142,15 +139,15 @@
 
     <script type="text/javascript">
       var color = ["red", "magenta", "aquamarine", "purple", "navy", "gold", "pink"]
-      d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/automobile%20manufacturers%20and%20cylinders.csv", d3.autoType).then(function (data) {
-       console.log(data[0].EngineCylinders)
+      d3.csv("https://raw.githubusercontent.com/suganyasomu/AutomobileFuelEfficiency/master/DataSet/automobile%20manufacturers%20and%20cylinders.csv", d3.autoType).then(function (data) {
+        console.log(data[0].EngineCylinders)
         var width = 1145;
         var height = 600;
         var margin = 25;
         var x = d3.scaleBand().domain(data.map(function (d) { return d.Make; })).range([0, width]);
         var y = d3.scaleLinear().domain([0, 12]).range([height, 0]);
 
-        d3.select("svg").append("g").attr('id', 'bars').attr("transform", "translate(" + margin + "," + margin + ")").selectAll('g').data(data).enter().append('rect').attr("width", 11).attr('x', function (d, i) { return 11 * i }).attr("height", 0).attr('y', 600).transition().duration(8000).delay(6000).attr('y', (d) => y(d.EngineCylinders)).attr("height", (d) => y(0) - y(d.EngineCylinders)).attr("fill", function (d) {
+        d3.select("svg").append("g").attr('id', 'bars').attr("transform", "translate(" + margin + "," + margin + ")").selectAll('g').data(data).enter().append('rect').attr("width", 11).attr('x', function (d, i) { return 11 * i }).attr("height", 0).attr('y', 600).transition().duration(4000).delay(700).attr('y', (d) => y(d.EngineCylinders)).attr("height", (d) => y(0) - y(d.EngineCylinders)).attr("fill", function (d) {
           if (d.Make === 'Acura') { return "#bd3119"; }
           if (d.Make === 'Alpha Romeo') { return "yellow"; }
           if (d.Make === 'Aston Martin') { return "#3f96c4"; }
@@ -206,19 +203,20 @@
         const annotations = [
           {
             note: {
-              title: "Most Common Engine Type: 4 Cyclinders"
+              title: "Most Common Engine type:",
+              label: "4 Cylinder"
             },
             connector: {
               end: "arrow",        // Can be none, or arrow or dot
               type: "line",      // ?? don't know what it does
               lineType: "vertical",    // ?? don't know what it does
-              endScale: 1    // arrow size
+              endScale: 2    // arrow size
             },
             color: ["red"],
-            x: 245,
-            y: 525,
-            dy: 70,
-            dx: 70
+            x: 910,
+            y: 420,
+            dy: -90,
+            dx: 0
           }
         ]
 
@@ -226,23 +224,17 @@
           .type(d3.annotationLabel)
           .annotations(annotations)
 
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations)
+
         d3.select('body').append('div').attr('id', 'tooltip').attr('style', 'position: absolute; opacity: 0;');
         d3.selectAll("rect").data(data).on('mouseover', function (d) {
           d3.select('#tooltip').transition().duration(200).style('opacity', 1).text(d.EngineCylinders + " Cyl " + d.Make).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY) + "px")
         }).on('mouseout', function () {
           d3.select('#tooltip').style('opacity', 0)
         })
-
-        svg.selectAll("text").data(data).enter().append('text').text(function (d) { return d.Make }).attr("transform", "rotate(-90)").attr('x', function (d, i) { return ((10 * i) + 5) }).attr('y', 200)//attr("font-family", "sans-serif")
-
-        svg.append("text")
-          .attr("transform",
-            "translate(" + (width / 2) + " ," +
-            (height + margin.top + 200) + ")")
-          .style("text-anchor", "middle")
-          .text("Date");
-
-
       })
     </script>
     <!-- Optional JavaScript -->

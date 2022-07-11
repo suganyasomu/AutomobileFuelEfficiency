@@ -5,51 +5,101 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <title>Fuel Type & Efficiency (Diesel)</title>
 
-    <title>Hello, world!</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      padding: 30px;
+    }
+
+    h2+p {
+      margin-top: -30px;
+    }
+
+    p {
+      padding-left: 50px;
+      padding-right: 50px;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    p+ul {
+      margin-top: -10px;
+    }
+
+    ul {
+      margin: 50px;
+    }
+
+    li {
+      text-align: left;
+      list-style: circle
+    }
+
+    svg {
+      background-color: white;
+      font-family: 'Lato';
+    }
+
+    .annotation-note-title,
+    text.title {
+      font-weight: normal;
+      border: none;
+    }
+  </style>
   </head>
   <body >
     
         <div class="jumbotron jumbotron-fluid">
   <div class="container">
       <h1> DIESEL FUEL ENGINES </h1>
-      <img src="elegant-gas-panel.png" class="img-fluid" alt="Responsive image">
+      <img src="..\Images\elegant-gas-panel.png" class="img-fluid" alt="Responsive image">
        </div>
      </div>
      
   <h2> Higher Efficiency ?</h2>
 
-<p> Due to the impure combustion leading to difference in the smoothness of power delivery and hence the quality of the ride,Diesel engines are less popular , especially amonst the passenger car manufacturers . As you can see, there are only few of the big names who manufacture diesel engine cars . Never the less, Lets explore  the fuel efficiency numbers for 4 cylinder engines , when driven on A. Highways and B. Cities for the <b>Diesel </b>engines : </p>
-      <svg id ="G1" width=550 height =610 style="border:1px solid black">
+<p> Due to the impure combustion leading to difference in the smoothness of power delivery and hence the quality of the ride,Diesel engines are less popular , especially amonst the passenger car manufacturers . </p>
+<p> As you can see, there are only few of the big names who manufacture diesel engine cars . Never the less, Lets explore  the fuel efficiency numbers for 4 cylinder engines , when driven on:</p>
+<ul>
+  <li>A. Highways with Diesel engine</li>
+  <li>B. Cities with Diesel engine</li>
+</ul>
+      <svg id ="G1" width=550 height =700 style="border:1px solid black; margin:50px">
+        <text x="50%" y="90%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="30px"
+      fill="Blue">Highways</text>
         <line x1="25" y1="110" x2="1200" y2="110" style="stroke:rgb(255,0,0);stroke-width:5" /> 
         <line x1="325" y1="43" x2="325" y2="110" style="stroke:rgb(255,0,0);stroke-width:1" /> 
         <text x="255" y="20" font-family="sans-serif" font-size="12px" fill="red">Type of Fuel : Diesel</text>
         <text x="255" y="40" font-family="sans-serif" font-size="12px" fill="red">Net HIGHWAY Average 34.5 mpg > 31.4 (Gasoline) !!</text>
-        <!-- annotation
-  <rect x= 1140 y = 360  width = 50 height = 50 style="border:1px solid black" ></rect>  -->
       
   </svg>
-  <svg id ="G2"width=550 height =610 style="border:1px solid black">
+  <svg id ="G2"width=550 height =700 style="border:1px solid black;margin:50px">
+    <text x="50%" y="90%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="30px"
+      fill="Blue">Cities</text>
         <line x1="25" y1="225" x2="1200" y2="225" style="stroke:rgb(255,0,0);stroke-width:5" /> 
         <line x1="325" y1="150" x2="325" y2="225" style="stroke:rgb(255,0,0);stroke-width:1" /> 
         <text x="290" y="120" font-family="sans-serif" font-size="12px" fill="red">Type of Fuel : Diesel</text>
-        <text x="290" y="140" font-family="sans-serif" font-size="12px" fill="red">Net CITY Average 25.5 > 23.4 mpg (Gasoline)!!</text>
-        <!-- annotation
-  <rect x= 1140 y = 360  width = 50 height = 50 style="border:1px solid black" ></rect>  -->
-      
+        <text x="290" y="140" font-family="sans-serif" font-size="12px" fill="red">Net CITY Average 25.5 > 23.4 mpg (Gasoline)!!</text>      
   </svg>
   <br></br>
   <div>
   <div align = "center">
-    <a align = "center " href="Explore.html" class="btn btn-primary">Explore More>></a>
+    <a align = "center " href="Explore.html" class="btn btn-primary" style="display:inline-block;padding:1em 2em;margin:10 0.3em 0.3em 0;margin-top: 50px;margin-bottom: 50px;border-radius:2em;box-sizing: border-box;font-weight:300;color:#FFFFFF;background-color:#f14e4e;text-align:center;transition: all 0.2s;">Explore More >></a>
     
   </div>
 
   <script type="text/javascript">
-d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/diesel%204%20cylinder.csv", d3.autoType).then(function(data) { 
+d3.csv("https://raw.githubusercontent.com/suganyasomu/AutomobileFuelEfficiency/master/DataSet/diesel%204%20cylinder.csv", d3.autoType).then(function(data) { 
   
 console.log(data[0].EngineCylinders)
 
@@ -59,7 +109,7 @@ var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
 var y = d3.scaleLinear().domain([0,41]).range([height,0]);
 
-d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(2500).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
+d3.select("#G1").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(700).attr('y', (d) => y(d.AverageHighwayMPG)).attr("height", (d) => y(0) - y(d.AverageHighwayMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
@@ -118,17 +168,8 @@ d3.selectAll("rect").data(data).on('mouseover', function(d) {
  })
 
 
-svg.selectAll("text").data(data).enter().append('text').text(function (d) {return d.Make}).attr("transform","rotate(-90)").attr('x', function(d,i) {return ((10*i)+5)}).attr('y',200)
-svg.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 200) + ")")
-      .style("text-anchor", "middle")
-      .text("Date");
-
-
 })
-d3.csv("https://raw.githubusercontent.com/swapgithub108/project1/master/diesel%204%20cylinder.csv", d3.autoType).then(function(data) { 
+d3.csv("https://raw.githubusercontent.com/suganyasomu/AutomobileFuelEfficiency/master/DataSet/diesel%204%20cylinder.csv", d3.autoType).then(function(data) { 
   
 console.log(data[0].EngineCylinders)
 
@@ -138,7 +179,7 @@ var margin = 25;
 var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]);
 var y = d3.scaleLinear().domain([0,41]).range([height,0]);
 
-d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(2500).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
+d3.select("#G2").append("g").attr('id','bars').attr("transform", "translate("+margin+","+margin+")").selectAll('g').data(data).enter().append('rect').attr("width", 120).attr('x', function(d,i) {return 120*i}).attr("height", 0).attr('y',500).transition().duration(4000).delay(700).attr('y', (d) => y(d.AverageCityMPG)).attr("height", (d) => y(0) - y(d.AverageCityMPG)).attr("fill",function(d){
   if (d.Make === 'Acura' ) {return "#bd3119";}
   if (d.Make === 'Alpha Romeo' ) {return "yellow";}
   if (d.Make === 'Aston Martin' ) {return "#3f96c4";}
@@ -183,28 +224,18 @@ if (d.Make === 'Lotus' ) {return "#576360";}
   if (d.Make === 'Volvo' ) {return "#04a4c4";}
   if (d.Make === 'Nissan' ) {return "#7c9970"}
 })
-d3.select("svg").append("g").attr("transform", "translate("+margin+","+margin+")").call(d3.axisLeft(a));
-d3.select("svg").append("g").attr("transform", "translate("+margin+","+(height+margin)+")").call(d3.axisBottom(b)).selectAll("text")  
+d3.select("#G2").append("g").attr("transform", "translate("+margin+","+margin+")").call(d3.axisLeft(y));
+d3.select("#G2").append("g").attr("transform", "translate("+margin+","+(height+margin)+")").call(d3.axisBottom(x)).selectAll("text")  
         .style("text-anchor", "end")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
         .attr("transform", "rotate(-90)")
 d3.select('body').append('div').attr('id', 'tooltip').attr('style', 'position: absolute; opacity: 0;');
-d3.selectAll("rect").data(data).on('mouseover', function(d) {
+d3.select("#G2").selectAll("rect").data(data).on('mouseover', function(d) {
  d3.select('#tooltip').transition().duration(200).style('opacity', 1).text(d.AverageCityMPG+" mpg "+d.Make).style("left",(d3.event.pageX)+"px").style("top",(d3.event.pageY)+"px")
  }) .on('mouseout', function() {
  d3.select('#tooltip').style('opacity', 0)
  })
-
-
-svg.selectAll("text").data(data).enter().append('text').text(function (d) {return d.Make}).attr("transform","rotate(-90)").attr('x', function(d,i) {return ((10*i)+5)}).attr('y',200)
-svg.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 200) + ")")
-      .style("text-anchor", "middle")
-      .text("Date");
-
 
 })
 
